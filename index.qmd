@@ -1,0 +1,38 @@
+---
+title: "Dembo Ceesay's Website"
+---
+Hi, I am a first year graduate student studying AI and Business Statistics. 
+
+While pursuing my degree in Business Administration, I was introduced to data analysis and its applications and decided to pursue it for my graduate studies. I have worked on the side as a pharmacy technician for the past 4 years while also taking on internships. 
+
+It is due to these experiences that I chose to aim for a career in pharmaceutical data analysis. I will use my time at Baruch accumulating the skills and knowledge of the industry to ensure a quick entry into the workforce.
+In my personal time I like creating digital art, gaming, and watching movies
+
+
+```{r}
+#| include: false
+1+1
+```
+--------------
+Last Updated: `r format(Sys.time(), "%A %m %d, %Y at %H:%M%p")`
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+if(!require("leaflet")){
+    options(repos=c(CRAN="https://cloud.r-project.org"))
+    install.packages("leaflet")
+    stopifnot(require("leaflet"))
+}
+
+baruch_longitude <- -73.98333
+baruch_latitude  <- +40.74028
+
+leaflet() |>
+  addTiles() |>
+  setView(baruch_longitude, baruch_latitude, zoom=17) |>
+  addPopups(baruch_longitude, baruch_latitude, 
+            "I am a Master's student at <b>Baruch College</b>!")
+```
